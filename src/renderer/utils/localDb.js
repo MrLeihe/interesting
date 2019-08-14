@@ -8,6 +8,6 @@ const adapter = new FileSync(path.join(os.homedir()+"/projects/electron-spider",
 
 let db = low(adapter)
 
-db.defaults({ info: [], isActivated: false }).write();
+db.defaults({ info: []}).write();
 
 module.exports = db; 
