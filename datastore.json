@@ -1,19 +1,26 @@
 {
-  "info": [
+  "dbInfo": {
+    "host": "192.168.1.34",
+    "port": "3307",
+    "username": "root",
+    "password": "86qweqweqwe",
+    "dbname": "op"
+  },
+  "projects": [
     {
-      "id": 3,
-      "projectName": "项目3",
+      "id": "3",
+      "projectName": "项目444",
       "createdTime": 1565776250,
-      "updatedTime": 1565776350
+      "updatedTime": 1565841547
     },
     {
-      "id": 2,
+      "id": "2",
       "projectName": "项目2",
       "createdTime": 1565776450,
       "updatedTime": 1565776550
     },
     {
-      "id": 1,
+      "id": "1",
       "projectName": "项目1",
       "createdTime": 1565776650,
       "updatedTime": 1565776750

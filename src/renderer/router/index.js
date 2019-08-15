@@ -16,6 +16,11 @@ export default new Router({
       component: require('@/components/List').default
     },
     {
+      path: '/projects/:id',
+      name: 'detail',
+      component: require('@/components/projects/Detail').default
+    },
+    {
       path: '/add',
       name: 'add',
       component: require('@/components/Add').default

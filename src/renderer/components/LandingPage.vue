@@ -1,6 +1,5 @@
 <template>
   <div>
-    
     <el-form ref="form" :model="form" label-width="120px">
       <el-form-item label="数据库主机地址">
         <el-input v-model="form.host"></el-input>
@@ -27,10 +26,8 @@
 </template>
 
 <script>
-//import SystemInformation from './LandingPage/SystemInformation'
+var db = require("../utils/localDb");
 const Sequelize = require("sequelize");
-
-//方法1:单独传递参数
 
 export default {
   name: "landing-page",
@@ -46,15 +43,12 @@ export default {
     };
   },
   created() {
-    var dbinfo = localStorage.getItem('dbinfo');
-    console.log(dbinfo)
-    if (dbinfo) {
-      this.form = JSON.parse(dbinfo);
+    var dbinfo = db.get('dbInfo').value()
+    if (dbinfo.host) {
+      this.form = dbinfo;
     }
   },
   computed: {
-    //'postgres://user:pass@example.com:5432/dbname'
-
     sqlurl() {
       let form = this.form;
       return `mysql://${form.username}:${form.password}@${form.host}:${form.port}/${form.dbname}`;
@@ -66,10 +60,11 @@ export default {
       sequelize
         .authenticate()
         .then(() => {
-          localStorage.setItem("dbinfo", JSON.stringify(this.form));
+          db.set('dbInfo', this.form).write()
           this.$router.push({ path: "/list" });
         })
         .catch(err => {
+          console.log(err)
           alert("连接失败");
         });
     }
