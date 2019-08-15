@@ -3,6 +3,9 @@
     <el-form-item label="项目名称">
       <el-input v-model="form.projectName"></el-input>
     </el-form-item>
+    <el-form-item label="项目地址">
+      <el-input v-model="form.url"></el-input>
+    </el-form-item>
     <el-form-item>
       <el-button type="primary" @click="onSubmit">{{isEdit?"立即更新":"立即创建"}}</el-button>
       <el-button @click="goBack">取消</el-button>
@@ -20,7 +23,8 @@ export default {
       form: {
         projectName: "",
         createdTime: "",
-        updatedTime: ""
+        updatedTime: "",
+        url:""
       }
     };
   },
@@ -53,7 +57,8 @@ export default {
         id: this.form.id,
         projectName: this.form.projectName,
         createdTime: this.form.createdTime,
-        updatedTime: time
+        updatedTime: time,
+        url:this.form.url
       };
       db.get("projects")
         .find({ id: this.form.id })
@@ -66,6 +71,7 @@ export default {
       this.form = {
         id: shortid.generate(),
         projectName: this.form.projectName,
+        url:this.form.url,
         createdTime: time,
         updatedTime: time
       };
