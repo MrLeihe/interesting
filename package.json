@@ -51,7 +51,7 @@
     }
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "element-ui": "^2.5.4",
     "lowdb": "^1.0.0",
     "materialize-css": "^1.0.0-rc.2",
